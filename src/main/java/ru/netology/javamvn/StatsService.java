@@ -27,18 +27,19 @@ public class StatsService {
         return indexOfMaxSalesMonth;
     }
     public int getIndexOfMinSalesMonth (long[] sales){
-        int IndexOfMinSalesMonth = 0;
+        int indexOfMinSalesMonth = 0;
         for (int i=0; i<sales.length; i++){
-            if (sales[i] <= sales[IndexOfMinSalesMonth]){
-                IndexOfMinSalesMonth = i;
+            if (sales[i] <= sales[indexOfMinSalesMonth]){
+                indexOfMinSalesMonth = i;
             }
         }
-        return IndexOfMinSalesMonth;
+        return indexOfMinSalesMonth;
     }
     public int getQuantityOfMonthsLowerThanAverage (long[] sales){
         int quantityOfMonthsLowerThanAverage = 0;
+        long averageSumOfAllSales = getSumOfAllSales(sales);
         for (long sale : sales) {
-            if (sale < getAverageSumOfAllSales(sales)) {
+            if (sale < averageSumOfAllSales) {
                 quantityOfMonthsLowerThanAverage++;
             }
         }

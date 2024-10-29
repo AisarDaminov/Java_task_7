@@ -34,7 +34,7 @@ public class StatsServiceTest {
         Assertions.assertEquals(expected, actual);
     }
 
-//    Тест с разными значениями
+    //    Тест с разными значениями
 //    @Test
 //    public void shouldReturnIndexOfMaxSalesDifferentMonths() {
 //        StatsService service = new StatsService();
@@ -54,7 +54,8 @@ public class StatsServiceTest {
         long actual = service.getIndexOfMinSalesMonth(sales);
         Assertions.assertEquals(expected, actual);
     }
-//    Тест с разными значениями
+
+    //    Тест с разными значениями
 //    @Test
 //    public void shouldReturnIndexOfMinSalesDifferentMonths() {
 //        StatsService service = new StatsService();
@@ -73,6 +74,7 @@ public class StatsServiceTest {
         long actual = service.getQuantityOfMonthsLowerThanAverage(sales);
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void shouldFindQuantityOfMonthsHigherThanAverage() {
         StatsService service = new StatsService();

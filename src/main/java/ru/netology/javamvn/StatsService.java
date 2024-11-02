@@ -2,42 +2,44 @@ package ru.netology.javamvn;
 
 public class StatsService {
 
-    public long getSumOfAllSales (long[] sales){
+    public long getSumOfAllSales(long[] sales) {
         long sumOfAllSales = 0;
-        for (int i=0; i<sales.length; i++){
+        for (int i = 0; i < sales.length; i++) {
             sumOfAllSales += sales[i];
         }
         return sumOfAllSales;
     }
 
-    public long getAverageSumOfAllSales (long[] sales){
+    public long getAverageSumOfAllSales(long[] sales) {
         long averageSumOfAllSales = 0;
         long sumOfAllSales = getSumOfAllSales(sales);
-        averageSumOfAllSales = sumOfAllSales/sales.length;
+        averageSumOfAllSales = sumOfAllSales / sales.length;
         return averageSumOfAllSales;
     }
 
-    public int getIndexOfMaxSalesMonth (long[] sales){
+    public int getIndexOfMaxSalesMonth(long[] sales) {
         int indexOfMaxSalesMonth = 0;
-        for (int i=0; i<sales.length; i++){
-            if (sales[i] >= sales[indexOfMaxSalesMonth]){
+        for (int i = 0; i < sales.length; i++) {
+            if (sales[i] >= sales[indexOfMaxSalesMonth]) {
                 indexOfMaxSalesMonth = i;
             }
         }
         return indexOfMaxSalesMonth;
     }
-    public int getIndexOfMinSalesMonth (long[] sales){
+
+    public int getIndexOfMinSalesMonth(long[] sales) {
         int indexOfMinSalesMonth = 0;
-        for (int i=0; i<sales.length; i++){
-            if (sales[i] <= sales[indexOfMinSalesMonth]){
+        for (int i = 0; i < sales.length; i++) {
+            if (sales[i] <= sales[indexOfMinSalesMonth]) {
                 indexOfMinSalesMonth = i;
             }
         }
         return indexOfMinSalesMonth;
     }
-    public int getQuantityOfMonthsLowerThanAverage (long[] sales){
+
+    public int getQuantityOfMonthsLowerThanAverage(long[] sales) {
         int quantityOfMonthsLowerThanAverage = 0;
-        long averageSumOfAllSales = getSumOfAllSales(sales);
+        long averageSumOfAllSales = getAverageSumOfAllSales(sales);
         for (long sale : sales) {
             if (sale < averageSumOfAllSales) {
                 quantityOfMonthsLowerThanAverage++;
@@ -45,10 +47,12 @@ public class StatsService {
         }
         return quantityOfMonthsLowerThanAverage;
     }
-    public int getQuantityOfMonthsHigherThanAverage (long[] sales){
+
+    public int getQuantityOfMonthsHigherThanAverage(long[] sales) {
         int quantityOfMonthsHigherThanAverage = 0;
+        long averageSumOfAllSales = getAverageSumOfAllSales(sales);
         for (long sale : sales) {
-            if (sale > getAverageSumOfAllSales(sales)) {
+            if (sale > averageSumOfAllSales) {
                 quantityOfMonthsHigherThanAverage++;
             }
         }
